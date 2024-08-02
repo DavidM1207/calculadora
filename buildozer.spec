@@ -10,7 +10,7 @@ osx.kivy_version = 1.11.1
 android.api = 29
 android.minapi = 21
 android.sdk = 29
-android.ndk = 21b
+android.ndk = 27b
 android.gradle_dependencies = 
 
 [buildozer]
