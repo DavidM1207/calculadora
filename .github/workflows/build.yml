@@ -29,14 +29,20 @@ jobs:
           key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}-${{ hashFiles('buildozer.spec') }}
 
       - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
+        run: |
+          buildozer android debug 2>&1 | tee buildozer_output.log | tail -n 100
+        shell: bash
+
+      - name: Upload Buildozer log
+        uses: actions/upload-artifact@v2
         with:
-          command: buildozer android debug
-          buildozer_version: stable
+          name: buildozer-log
+          path: buildozer_output.log
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: package
-          path: ${{ steps.buildozer.outputs.filename }}
+          path: bin/*.apk
+
+
