@@ -26,6 +26,7 @@ jobs:
         run: |
           wget https://dl.google.com/android/repository/android-ndk-r25b-linux.zip
           unzip android-ndk-r25b-linux.zip
+          mkdir -p $HOME/.buildozer/android/platform/
           mv android-ndk-r25b $HOME/.buildozer/android/platform/
           echo "ANDROIDNDK=$HOME/.buildozer/android/platform/android-ndk-r25b" >> $GITHUB_ENV
 
@@ -49,6 +50,7 @@ jobs:
           echo "[buildozer]" >> buildozer.spec
           echo "log_level = 2" >> buildozer.spec
           echo "warn_on_root = 1" >> buildozer.spec
+
 
       - name: Cache Buildozer global directory
         uses: actions/cache@v2
