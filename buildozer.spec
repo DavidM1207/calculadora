@@ -1,17 +1,17 @@
 [app]
-title = My Application
-package.name = myapp
+title = Calculadora
+package.name = calculadora
 package.domain = org.test
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 0.1
-requirements = python3,kivy
+requirements = python3,kivy,kivymd,pillow
 osx.kivy_version = 1.11.1
 android.api = 29
 android.minapi = 21
 android.sdk = 29
 android.ndk = 27b
-android.gradle_dependencies = 
+android.archs = armeabi-v7a
 
 [buildozer]
 log_level = 2
